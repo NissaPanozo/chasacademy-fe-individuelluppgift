@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2500);
     }
 
-
+    // Add to cart knappar
     var items = document.querySelectorAll(".add-to-cart");
     items.forEach(function (item) {
         item.addEventListener("click", function () {
@@ -33,12 +33,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-  
-    var newsletterButton = document.querySelector(".newsletter .primary-button");
-    if (newsletterButton) {
-        newsletterButton.addEventListener("click", function (e) {
+    // Nyhetsbrev
+    var newsletterForm = document.querySelector(".newsletter form");
+    if (newsletterForm) {
+        newsletterForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            showNotification("✓ Tack för din prenumeration!");
+            const name = document.querySelector("#name").value.trim();
+            const email = document.querySelector("#email").value.trim();
+            if (!name || !email) {
+                showNotification("⚠️ Fyll i namn och e-post!");
+            } else {
+                showNotification("✓ Tack för din prenumeration!");
+            }
         });
     }
 });
