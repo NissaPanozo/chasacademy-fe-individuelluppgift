@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: none;
 }
 
 body {
@@ -101,7 +100,7 @@ body {
     margin-bottom: 8px;
 }
 
-.product-card h1 {
+.product-card h3 {
     font-size: 18px;
     margin-bottom: 4px;
     color: #555555;
