@@ -156,3 +156,10 @@ body {
     text-decoration: none;
     margin-left: 8px;
 }
+
+a:focus,
+button:focus,
+input:focus {
+    outline: 3px solid #0055aa;
+    outline-offset: 2px;
+}
