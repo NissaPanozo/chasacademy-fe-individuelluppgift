@@ -103,5 +103,19 @@
         <p>© 2025 MyShop. All rights reserved.</p>
         <a href="#">Integritetspolicy</a>
     </footer>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.7.2/axe.min.js"></script>
+    <script>
+        axe.run().then(results => {
+            console.log('=== AXE TILLGÄNGLIGHETSRAPPORT ===');
+            console.log('Antal fel:', results.violations.length);
+            results.violations.forEach((violation, index) => {
+                console.log(`\nFel ${index + 1}: ${violation.id}`);
+                console.log('Beskrivning:', violation.description);
+                console.log('Allvarlighet:', violation.impact);
+            });
+        });
+    </script>
+
 </body>
 </html>
