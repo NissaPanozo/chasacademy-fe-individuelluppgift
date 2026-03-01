@@ -105,6 +105,26 @@
     </footer>
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.7.2/axe.min.js"></script>
+
+<script>
+    new PerformanceObserver((entryList) => {
+        const entries = entryList.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        const lcpValue = Math.round(lastEntry.startTime);
+        
+        console.log('=== LCP MÄTNING ===');
+        console.log('LCP värde:', lcpValue, 'ms');
+        console.log('LCP element:', lastEntry.element);
+
+        
+        const lcpDisplay = document.createElement('div');
+        lcpDisplay.style.cssText = 'position:fixed;bottom:10px;right:10px;background:#333;color:#fff;padding:8px 12px;border-radius:4px;font-size:13px;z-index:9999;';
+        lcpDisplay.textContent = 'LCP: ' + lcpValue + 'ms';
+        document.body.appendChild(lcpDisplay);
+
+    }).observe({type: 'largest-contentful-paint', buffered: true});
+</script>
+
     <script>
         axe.run().then(results => {
             console.log('=== AXE TILLGÄNGLIGHETSRAPPORT ===');
